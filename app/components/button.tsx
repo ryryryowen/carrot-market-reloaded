@@ -4,17 +4,28 @@ import { useFormStatus } from "react-dom";
 
 interface ButtonProps {
   text: string;
+  disabled?: boolean;
 }
 
-export default function Button({ text }: ButtonProps) {
+export default function Button({ text, disabled }: ButtonProps) {
   // useFormStatus 이 hook 은 form의 자식요소에서 사용해야함
   const { pending } = useFormStatus();
   return (
     <button
-      disabled={pending}
-      className="primary-btn h-10 disabled:bg-neutral-400 disabled:text-neutral-300 disabled:cursor-not-allowed"
+      disabled={pending || disabled}
+      className={`
+        w-full 
+        bg-orange-500 
+        hover:bg-orange-600 
+        text-white 
+        py-2.5 
+        rounded-md
+        font-medium
+        disabled:bg-neutral-400
+        transition-colors
+      `}
     >
-      {pending ? "로딩 중" : text}
+      {pending ? "로딩 중..." : text}
     </button>
   );
 }

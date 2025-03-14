@@ -38,7 +38,7 @@ export default function SMSLogin() {
             errors={state.error?.formErrors}
           />
         )}
-        <Button text={state.token ? "토큰 인증하기" : "인증 문자 보내기"} />
+        <Button text={state.token ? "인증 번호 확인" : "인증 번호 발송"} />
       </form>
     </div>
   );

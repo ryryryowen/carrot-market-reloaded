@@ -8,7 +8,7 @@ import {
 } from "@/lib/constants";
 import db from "@/lib/db";
 import { redirect } from "next/navigation";
-import getSession from "@/lib/session";
+import { saveUserSession } from "@/lib/session";
 
 const checkUsername = (username: string) => !username.includes("potato");
 
@@ -108,9 +108,7 @@ export async function createAccount(prevState: any, formData: FormData) {
       },
     });
     // log the user in
-    const session = await getSession();
-    session.id = user.id;
-    // await session.save();
-    redirect("/profile");
+    await saveUserSession(user.id);
+    return redirect("/profile");
   }
 }

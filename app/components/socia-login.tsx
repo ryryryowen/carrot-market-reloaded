@@ -25,7 +25,8 @@ export default function SocialLogin() {
           </svg>
           <span>Github 으로 로그인</span>
         </Link>
-        <Link
+        {/* 원래 코드 */}
+        {/* <Link
           className="primary-btn flex h-10 items-center justify-center gap-2"
           href="/sms"
         >
@@ -33,7 +34,13 @@ export default function SocialLogin() {
             <ChatBubbleOvalLeftEllipsisIcon className="size-6" />
           </span>
           <span>SMS 으로 로그인</span>
-        </Link>
+        </Link> */}
+        <div className="primary-btn flex h-10 items-center justify-center gap-2 opacity-50 cursor-not-allowed">
+          <span>
+            <ChatBubbleOvalLeftEllipsisIcon className="size-6" />
+          </span>
+          <span>SMS 으로 로그인 (오류해결중)</span>
+        </div>
       </div>
     </>
   );
